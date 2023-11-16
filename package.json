@@ -1,0 +1,16 @@
+{
+  "name": "oxh-learn-miniVue",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^0.34.6"
+  },
+  "dependencies": {
+    "typescript": "^5.2.2"
+  }
+}
+ 
