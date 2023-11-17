@@ -19,5 +19,21 @@ describe('effect', () => {
         expect(nextAge).toBe(12)
 
     })
+
+    it('should return runner when call effect',()=>{
+        //1 effect(fn)-> function runner()-> fn -> return
+        //1.given
+        let foo=10
+      const runner=  effect(()=>{
+            foo++
+            return 'foo'
+        })
+        expect(foo).toBe(11)
+        //runner() 是否会执行fn
+        const r=runner()
+        expect(foo).toBe(12)
+        //runner() 是否会返回fn的返回值 
+        expect(r).toBe('foo') 
+    })
 })
   

@@ -19,7 +19,7 @@ class ReactiveEffect {
   }
   run() {
     activeEffect = this;
-    this._fn();
+    return this._fn();
   }
 }
 
@@ -56,13 +56,13 @@ export function track(target: any, key: any) {
  * @param key 
  */
 export function trigger(target: any, key: any) {
-    //根据 target和key去获取依赖OBJECT（dep),然后遍历收集之前的fn执行
-    let depsMap = targetMap.get(target);
-    let dep = depsMap.get(key);
+  //根据 target和key去获取依赖OBJECT（dep),然后遍历收集之前的fn执行
+  let depsMap = targetMap.get(target);
+  let dep = depsMap.get(key);
 
-    for(const effect of dep){
-        effect.run()
-    }
+  for (const effect of dep) {
+    effect.run()
+  }
 
 }
 /**
@@ -72,12 +72,6 @@ export function trigger(target: any, key: any) {
 export function effect(fn: any) {
   const _effect = new ReactiveEffect(fn);
   _effect.run();
+  //处理指针
+  return _effect.run.bind(_effect);
 }
-
-/**
- * @description 响应式3类
- * 1. Vue2的
- * 2. Vue3的Proxy
- * 3. 
- * 
- */
