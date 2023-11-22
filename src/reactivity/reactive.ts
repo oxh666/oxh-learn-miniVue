@@ -1,34 +1,25 @@
-import {track ,trigger} from './effect'
+import { readonlyHandlers } from './baseHandlers'
+
+
+/**
+ * @description reactive响应式
+ * @param raw reactive的参数raw
+ */
 export function reactive(raw: any) {
-    return new Proxy(raw, {
-        /**
-         * 
-         * @param target  reactive的参数raw
-         * @param key 获取的用户访问的Key
-         */
-        get(target, key) {
-            //target是{foo:1}，key是foo
-            
-            const res=Reflect.get(target,key)
+  // return new Proxy(raw, mutableHandlers)// 抽离出来的公共方法
+  return createActiveObject(raw, readonlyHandlers)
+  
+}
 
-            // TODO 依赖收集
-            track(target,key)
-            return res
-        },
-        
-        /**
-         * 
-         * @param target reactive的参数raw
-         * @param key 获取的用户访问的Key
-         * @param value  获取的用户访问的Key
-         */
-        set(target, key, value) {   
-              //target是{foo:1}，key是foo，value是1 
-            const res = Reflect.set(target, key, value)  
-            // TODO 触发依赖
+/**
+ * @description readonly只读属性
+ * @param raw reactive的参数raw
+ */
+export function readonly(raw: any) {
+  // return new Proxy(raw, readonlyHandlers)// 抽离出来的公共方法
+  return createActiveObject(raw, readonlyHandlers)
+}
 
-            trigger(target,key)
-            return res
-        }
-    })
+function createActiveObject(raw: any, baseHandlers: any) {
+  return new Proxy(raw, baseHandlers)
 }
