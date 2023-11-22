@@ -1,5 +1,5 @@
 import { describe, expect, it,vi } from "vitest";
-import { readonly } from "../reactivity/reactive";
+import { readonly ,isReadonly} from "../reactivity/reactive";
 
 describe("readonly", () => {
   /**
@@ -14,6 +14,7 @@ describe("readonly", () => {
     const wrapped = readonly(original);//代理对象
     expect(wrapped).not.toBe(original)//代理对象不等于原始对象
     expect(wrapped.foo).toBe(1)//代理对象的属性值等于原始对象的属性值
+ expect(isReadonly(wrapped)).toBe(true)// 是否是readonly对象
   })
   
   /**

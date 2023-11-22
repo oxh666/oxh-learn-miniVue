@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="07-实现 effect 返回 runner&#10;08-实现 effect 的scheduler 功能&#10;09-实现 effect 的 stop 功能">
-      <change afterPath="$PROJECT_DIR$/src/reactivity/baseHandlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/readonly.spec.ts" afterDir="false" />
+    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="10-实现 readonly 功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reactivity/baseHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/baseHandlers.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reactivity/reactive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/reactive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/reactive.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/reactive.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/readonly.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/readonly.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +71,8 @@
       <workItem from="1700536668756" duration="2672000" />
       <workItem from="1700547459994" duration="4662000" />
       <workItem from="1700552966245" duration="2297000" />
-      <workItem from="1700555917418" duration="5111000" />
+      <workItem from="1700555917418" duration="5598000" />
+      <workItem from="1700620164227" duration="3074000" />
     </task>
     <task id="LOCAL-00001" summary="调整">
       <created>1700117190183</created>
@@ -86,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700553661044</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="10-实现 readonly 功能">
+      <created>1700619827145</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1700619827145</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +116,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="调整" />
     <MESSAGE value="07-实现 effect 返回 runner&#10;08-实现 effect 的scheduler 功能&#10;09-实现 effect 的 stop 功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="07-实现 effect 返回 runner&#10;08-实现 effect 的scheduler 功能&#10;09-实现 effect 的 stop 功能" />
+    <MESSAGE value="10-实现 readonly 功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="10-实现 readonly 功能" />
   </component>
 </project>
