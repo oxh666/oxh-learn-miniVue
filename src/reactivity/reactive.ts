@@ -1,4 +1,4 @@
-import { readonlyHandlers } from './baseHandlers'
+import { mutableHandlers, readonlyHandlers } from './baseHandlers'
 
 /**
  * @description 响应式状态的枚举
@@ -14,7 +14,7 @@ export const enum ReactiveFlags {
  */
 export function reactive(raw: any) {
   // return new Proxy(raw, mutableHandlers)// 抽离出来的公共方法createActiveObject
-  return createActiveObject(raw, readonlyHandlers)
+  return createActiveObject(raw, mutableHandlers)
 }
 
 /**

@@ -4,6 +4,7 @@ import { extend } from "../shared";
  * 1. 依赖收集
  */
 let activeEffect: any;
+let shouldTrack: any;
 
 /**
  * @description  依赖收集
@@ -18,20 +19,31 @@ class ReactiveEffect {
   private _fn: any; //用户传入的函数
   public scheduler: Function | undefined; //调度程序
   
-  
   constructor(fn: any, public scheduler?: any) {
+    
     this._fn = fn;
   }
   
   run() {
+    //1.会收集依赖
+    // 使用 shouldTrack 来控制是否收集依赖
+    //如果不是激活状态，就直接执行
+    if (!this.active) return this._fn()
+    shouldTrack = true;
     activeEffect = this;
-    return this._fn();
+    
+    const result = this._fn()
+    
+    this._fn()
+    shouldTrack = false;
+    return result;
   }
   
   stop() {
     if (this.active) {
       //将当前的effect从dep中移除
       cleanupEffect(this);
+      
       //如果有onStop，就执行onStop
       if (this.onStop) {
         //
@@ -59,9 +71,13 @@ function cleanupEffect(effect: any) {
  * @param key  获取的用户访问的Key
  */
 export function track(target: any, key: any) {
+  //如果没有激活的effect，就不需要收集
+  if (!isTracking()) return;
+  
   //target -> key -> dep
   //将target转换成map对象
   let depsMap = targetMap.get(target);
+  
   //如果没有，就创建一个
   if (!depsMap) {
     depsMap = new Map();
@@ -70,19 +86,28 @@ export function track(target: any, key: any) {
   
   //拿到 key -> dep
   let dep = depsMap.get(key);
+  
   //key没有重复的，就创建一个set
   if (!dep) {
     dep = new Set();
     depsMap.set(key, dep);
   }
-  if (!activeEffect) return;
+
+  //如果当前的effect已经在dep中，就不需要再次收集
+  if(dep.has(activeEffect)) return;
+  
   //将当前的effect 放到dep中
   dep.add(activeEffect);
+  
   //将dep放到effect中
   activeEffect.deps.push(dep);
   
 }
 
+function isTracking() {
+    return shouldTrack && activeEffect !== undefined;
+  
+}
 
 /**
  * @description 触发依赖
@@ -112,14 +137,13 @@ export function trigger(target: any, key: any) {
  */
 export function effect(fn: any, options: any = {}) {
   const _effect: any = new ReactiveEffect(fn, options.scheduler);
-  // _effect.onStop = options.onStop
-  //优雅赋值
+  //优雅赋值 _effect.onStop = options.onStop
   extend(_effect, options);
   _effect.run();
   //处理指针
   const runner: any = _effect.run.bind(_effect);
   runner.effect = _effect;
-  
+  console.log('runner', runner)
   return runner;
 }
 
