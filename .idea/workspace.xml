@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="12-优化 stop 功能">
+    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="12-优化 stop 功能, 修改 reactive 代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reactivity/effect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/effect.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reactivity/reactive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/reactive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reactivity/baseHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/baseHandlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/tests/effect.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/effect.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/readonly.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/readonly.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +76,7 @@
       <workItem from="1701074837997" duration="502000" />
       <workItem from="1701075411394" duration="596000" />
       <workItem from="1701134872066" duration="1692000" />
-      <workItem from="1701154589894" duration="3771000" />
+      <workItem from="1701154589894" duration="5909000" />
     </task>
     <task id="LOCAL-00001" summary="调整">
       <created>1700117190183</created>
@@ -105,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700624713180</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="12-优化 stop 功能, 修改 reactive 代码">
+      <created>1701159070611</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701159070611</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +136,7 @@
     <MESSAGE value="07-实现 effect 返回 runner&#10;08-实现 effect 的scheduler 功能&#10;09-实现 effect 的 stop 功能" />
     <MESSAGE value="10-实现 readonly 功能" />
     <MESSAGE value="11-实现 isReactive 和 isReadonly" />
-    <option name="LAST_COMMIT_MESSAGE" value="11-实现 isReactive 和 isReadonly" />
+    <MESSAGE value="12-优化 stop 功能, 修改 reactive 代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="12-优化 stop 功能, 修改 reactive 代码" />
   </component>
 </project>
