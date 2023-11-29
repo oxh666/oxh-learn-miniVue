@@ -1,4 +1,4 @@
-import { mutableHandlers, readonlyHandlers } from './baseHandlers'
+import { mutableHandlers, readonlyHandlers  ,shallowReadonlyHandlers} from './baseHandlers'
 
 /**
  * @description 响应式状态的枚举
@@ -23,6 +23,11 @@ export function reactive(raw: any) {
  */
 export function readonly(raw: any) {
   return createActiveObject(raw, readonlyHandlers)
+}
+
+export function shallowReadOnly(raw: any) {
+  return createActiveObject(raw, shallowReadonlyHandlers)
+  
 }
 
 /**
