@@ -102,21 +102,21 @@ export function track(target: any, key: any) {
  */
 export function trackEffects(dep) {
 //如果当前的effect已经在dep中，就不需要再次收集
-  if(dep.has(activeEffect)) return;
+  if (dep.has(activeEffect)) return;
   
   //将当前的effect 放到dep中
   dep.add(activeEffect);
   
   //将dep放到effect中
   activeEffect.deps.push(dep);
-
+  
 }
 
 /**
  * @description 判断是否有激活的effect
  */
 export function isTracking() {
-    return shouldTrack && activeEffect !== undefined;
+  return shouldTrack && activeEffect !== undefined;
 }
 
 /**
@@ -136,7 +136,7 @@ export function trigger(target: any, key: any) {
  * @description 触发依赖
  * @param dep
  */
-export function triggerEffects(dep:any) {
+export function triggerEffects(dep: any) {
   for (const effect of dep) {
     //如果有scheduler，就执行scheduler
     if (effect.scheduler) {
@@ -146,6 +146,7 @@ export function triggerEffects(dep:any) {
     }
   }
 }
+
 /**
  *
  * @param fn 用户传入的函数
@@ -161,7 +162,7 @@ export function effect(fn: any, options: any = {}) {
   const runner: any = _effect.run.bind(_effect);
   
   runner.effect = _effect;
-
+  
   
   return runner;
 }

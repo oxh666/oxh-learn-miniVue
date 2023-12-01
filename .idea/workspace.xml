@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="15-实现 isProxy 功能">
-      <change afterPath="$PROJECT_DIR$/src/reactivity/ref.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reactivity/tests/ref.spec.ts" afterDir="false" />
+    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="16-实现 ref 功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reactivity/effect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/effect.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reactivity/reactive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/reactive.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/effect.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/effect.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/index.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/index.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/node_modules/.vitest/results.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/node_modules/.vitest/results.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/reactive.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/reactive.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/readonly.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/readonly.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tests/shallowReadonly.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/shallowReadonly.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reactivity/ref.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/ref.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reactivity/tests/ref.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/ref.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +107,7 @@
       <workItem from="1701134872066" duration="1692000" />
       <workItem from="1701154589894" duration="14755000" />
       <workItem from="1701242445648" duration="5660000" />
-      <workItem from="1701395708053" duration="1968000" />
+      <workItem from="1701395708053" duration="4384000" />
     </task>
     <task id="LOCAL-00001" summary="调整">
       <created>1700117190183</created>
@@ -167,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701223624066</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="16-实现 ref 功能">
+      <created>1701399325766</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1701399325766</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +191,19 @@
     <MESSAGE value="12-优化 stop 功能, 修改 reactive 代码" />
     <MESSAGE value="13-实现 reactive 和 readonly 嵌套对象转换功能" />
     <MESSAGE value="13-实现 reactive 和 readonly 嵌套对象转换功能, 并修改之前 bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="13-实现 reactive 和 readonly 嵌套对象转换功能, 并修改之前 bug" />
+    <MESSAGE value="16-实现 ref 功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="16-实现 ref 功能" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/reactivity/tests/ref.spec.ts</url>
+          <line>40</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

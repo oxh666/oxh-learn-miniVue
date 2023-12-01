@@ -6,6 +6,7 @@ const get = createGetter()
 const set = createSetter()
 const readonlyGet = createGetter(true)
 const shallowReadonlyGet = createGetter(true, true)
+
 /**
  * @description 创建getter
  * @param isReadonly 是否是只读
@@ -21,8 +22,8 @@ function createGetter(isReadonly: boolean = false, shallow: boolean = false) {
     }
     const res = Reflect.get(target, key)
     
-    if(shallow){
-        return res
+    if (shallow) {
+      return res
     }
     //看看 res 是不是 object
     if (isObject(res)) {
@@ -72,10 +73,10 @@ export const readonlyHandlers = {
   //set只读属性，不允许修改，故返回boolean
   set(target, key) {
     console.warn(
-      `key:'${String(key)}' set  失败，因为 target 是 readonly 类型 `,target)
+      `key:'${String(key)}' set  失败，因为 target 是 readonly 类型 `, target)
     return true  //返回true测试通过，false测试不通过 尬住了
   }
 }
-export const shallowReadonlyHandlers =   extend({}, readonlyHandlers, {
-    get: shallowReadonlyGet
+export const shallowReadonlyHandlers = extend({}, readonlyHandlers, {
+  get: shallowReadonlyGet
 })

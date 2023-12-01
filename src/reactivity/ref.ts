@@ -1,6 +1,6 @@
 import { isTracking, trackEffects, triggerEffects } from './effect'
 import { hasChanged, isObject } from "../shared";
-import {reactive} from "./reactive";
+import { reactive } from "./reactive";
 
 // 用来存储所有的ref
 // 基本类型 string  boolean number
@@ -11,9 +11,11 @@ class RefImpl {
   private _value: any
   private _dep: any
   private _rawValue: any
+  private _v_isRef = true
+  
   constructor(value: any) {
     this._rawValue = value
-    this._value =convert(value)
+    this._value = convert(value)
     // 看看 value 是不是对象
     
     this._dep = new Set()
@@ -28,23 +30,25 @@ class RefImpl {
   }
   
   set value(newValue) {
-    if(hasChanged(newValue,this._rawValue)) {
+    if (hasChanged(newValue, this._rawValue)) {
       // 先去修改 value
       this._rawValue = newValue
-      this._value =convert(newValue)
-
+      this._value = convert(newValue)
+      
       triggerEffects(this._dep)
     }
   }
   
   
 }
+
 function trackRefValue(ref) {
   if (isTracking()) {
     trackEffects(ref._dep)
   }
   
 }
+
 /**
  * @description 创建一个ref对象
  * @param value
@@ -53,7 +57,23 @@ export function ref(value: any) {
   
   return new RefImpl(value)
 }
+
 function convert(value) {
-  return isObject(value)? reactive(value): value
-  
+  return isObject(value) ? reactive(value) : value
+}
+
+/**
+ * @description 判断是否是ref对象
+ * @param ref  ref对象
+ */
+export function isRef(ref) {
+  return !!ref._v_isRef
+}
+
+/**
+ * @description 将ref对象转换成普通对象
+ * @param ref ref对象
+ */
+export function unRef(ref) {
+  return isRef(ref) ? ref.value : ref
 }
