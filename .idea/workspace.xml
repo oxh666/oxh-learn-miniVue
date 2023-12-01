@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="16-实现 ref 功能">
+    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="17-实现 isRef 和 unRef 功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reactivity/ref.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/ref.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reactivity/tests/ref.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/ref.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +108,7 @@
       <workItem from="1701134872066" duration="1692000" />
       <workItem from="1701154589894" duration="14755000" />
       <workItem from="1701242445648" duration="5660000" />
-      <workItem from="1701395708053" duration="4384000" />
+      <workItem from="1701395708053" duration="7265000" />
     </task>
     <task id="LOCAL-00001" summary="调整">
       <created>1700117190183</created>
@@ -165,7 +166,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701399325766</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="17-实现 isRef 和 unRef 功能">
+      <created>1701401743929</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1701401743929</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,7 +200,8 @@
     <MESSAGE value="13-实现 reactive 和 readonly 嵌套对象转换功能" />
     <MESSAGE value="13-实现 reactive 和 readonly 嵌套对象转换功能, 并修改之前 bug" />
     <MESSAGE value="16-实现 ref 功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="16-实现 ref 功能" />
+    <MESSAGE value="17-实现 isRef 和 unRef 功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="17-实现 isRef 和 unRef 功能" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
