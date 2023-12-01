@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="13-实现 reactive 和 readonly 嵌套对象转换功能">
-      <change afterPath="$PROJECT_DIR$/src/tests/shallowReadonly.spec.ts" afterDir="false" />
+    <list default="true" id="1d51d8f9-2d1f-493b-9fc7-659a8c9d1af5" name="更改" comment="15-实现 isProxy 功能">
+      <change afterPath="$PROJECT_DIR$/src/reactivity/ref.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/reactivity/tests/ref.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reactivity/baseHandlers.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/baseHandlers.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reactivity/effect.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/effect.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/reactivity/reactive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/reactive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/effect.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/effect.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/index.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/index.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/node_modules/.vitest/results.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/node_modules/.vitest/results.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/reactive.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/reactive.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/readonly.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/readonly.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/shallowReadonly.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactivity/tests/shallowReadonly.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +64,37 @@
       <force-push-target remote-path="origin" branch="main" />
     </force-push-targets>
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/reactivity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Node.js.should be reactive@ref.spec.ts by Vitest">
+    <configuration name="should be reactive@ref.spec.ts by Vitest (2)" type="NodeJSConfigurationType" temporary="true" application-parameters="run --threads false  -t &quot;should be reactive&quot; src/reactivity/tests/ref.spec.ts" path-to-js-file="$PROJECT_DIR$/node_modules/vitest/vitest.mjs" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="should be reactive@ref.spec.ts by Vitest (3)" type="NodeJSConfigurationType" temporary="true" application-parameters="run --threads false  -t &quot;should be reactive&quot; src/reactivity/tests/ref.spec.ts" path-to-js-file="$PROJECT_DIR$/node_modules/vitest/vitest.mjs" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="should be reactive@ref.spec.ts by Vitest (4)" type="NodeJSConfigurationType" temporary="true" application-parameters="run --threads false  -t &quot;should be reactive&quot; src/reactivity/tests/ref.spec.ts" path-to-js-file="$PROJECT_DIR$/node_modules/vitest/vitest.mjs" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="should be reactive@ref.spec.ts by Vitest (5)" type="NodeJSConfigurationType" temporary="true" application-parameters="run --threads false  -t &quot;should be reactive&quot; src/reactivity/tests/ref.spec.ts" path-to-js-file="$PROJECT_DIR$/node_modules/vitest/vitest.mjs" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="should be reactive@ref.spec.ts by Vitest" type="NodeJSConfigurationType" temporary="true" application-parameters="run --threads false  -t &quot;should be reactive&quot; src/reactivity/tests/ref.spec.ts" path-to-js-file="$PROJECT_DIR$/node_modules/vitest/vitest.mjs" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Node.js.should be reactive@ref.spec.ts by Vitest" />
+        <item itemvalue="Node.js.should be reactive@ref.spec.ts by Vitest (5)" />
+        <item itemvalue="Node.js.should be reactive@ref.spec.ts by Vitest (4)" />
+        <item itemvalue="Node.js.should be reactive@ref.spec.ts by Vitest (3)" />
+        <item itemvalue="Node.js.should be reactive@ref.spec.ts by Vitest (2)" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
@@ -75,7 +114,9 @@
       <workItem from="1701074837997" duration="502000" />
       <workItem from="1701075411394" duration="596000" />
       <workItem from="1701134872066" duration="1692000" />
-      <workItem from="1701154589894" duration="7671000" />
+      <workItem from="1701154589894" duration="14755000" />
+      <workItem from="1701242445648" duration="5660000" />
+      <workItem from="1701395708053" duration="1968000" />
     </task>
     <task id="LOCAL-00001" summary="调整">
       <created>1700117190183</created>
@@ -119,7 +160,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701160910444</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="13-实现 reactive 和 readonly 嵌套对象转换功能, 并修改之前 bug">
+      <created>1701223624066</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1701223624066</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +192,7 @@
     <MESSAGE value="11-实现 isReactive 和 isReadonly" />
     <MESSAGE value="12-优化 stop 功能, 修改 reactive 代码" />
     <MESSAGE value="13-实现 reactive 和 readonly 嵌套对象转换功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="13-实现 reactive 和 readonly 嵌套对象转换功能" />
+    <MESSAGE value="13-实现 reactive 和 readonly 嵌套对象转换功能, 并修改之前 bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="13-实现 reactive 和 readonly 嵌套对象转换功能, 并修改之前 bug" />
   </component>
 </project>

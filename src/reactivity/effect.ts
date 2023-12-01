@@ -4,7 +4,7 @@ import { extend } from "../shared";
  * 1. 依赖收集
  */
 let activeEffect: any;
-let shouldTrack: any;
+let shouldTrack: boolean = false;
 
 /**
  * @description  依赖收集
@@ -28,13 +28,14 @@ class ReactiveEffect {
     //1.会收集依赖
     // 使用 shouldTrack 来控制是否收集依赖
     //如果不是激活状态，就直接执行
-    if (!this.active) return this._fn()
+    if (!this.active) {
+      return this._fn()
+    }
     shouldTrack = true;
     activeEffect = this;
     
     const result = this._fn()
     
-    this._fn()
     shouldTrack = false;
     return result;
   }
@@ -77,7 +78,6 @@ export function track(target: any, key: any) {
   //target -> key -> dep
   //将target转换成map对象
   let depsMap = targetMap.get(target);
-  
   //如果没有，就创建一个
   if (!depsMap) {
     depsMap = new Map();
@@ -92,8 +92,16 @@ export function track(target: any, key: any) {
     dep = new Set();
     depsMap.set(key, dep);
   }
+  
+  trackEffects(dep)
+}
 
-  //如果当前的effect已经在dep中，就不需要再次收集
+/**
+ * @description 收集依赖
+ * @param dep
+ */
+export function trackEffects(dep) {
+//如果当前的effect已经在dep中，就不需要再次收集
   if(dep.has(activeEffect)) return;
   
   //将当前的effect 放到dep中
@@ -101,12 +109,14 @@ export function track(target: any, key: any) {
   
   //将dep放到effect中
   activeEffect.deps.push(dep);
-  
+
 }
 
-function isTracking() {
+/**
+ * @description 判断是否有激活的effect
+ */
+export function isTracking() {
     return shouldTrack && activeEffect !== undefined;
-  
 }
 
 /**
@@ -119,6 +129,14 @@ export function trigger(target: any, key: any) {
   let depsMap = targetMap.get(target);
   let dep = depsMap.get(key);
   
+  triggerEffects(dep)
+}
+
+/**
+ * @description 触发依赖
+ * @param dep
+ */
+export function triggerEffects(dep:any) {
   for (const effect of dep) {
     //如果有scheduler，就执行scheduler
     if (effect.scheduler) {
@@ -127,23 +145,24 @@ export function trigger(target: any, key: any) {
       effect.run()
     }
   }
-  
 }
-
 /**
  *
  * @param fn 用户传入的函数
  * @param options 选项
  */
 export function effect(fn: any, options: any = {}) {
+  
   const _effect: any = new ReactiveEffect(fn, options.scheduler);
-  //优雅赋值 _effect.onStop = options.onStop
+  // _effect.onStop = options.onStop
   extend(_effect, options);
   _effect.run();
   //处理指针
   const runner: any = _effect.run.bind(_effect);
+  
   runner.effect = _effect;
-  console.log('runner', runner)
+
+  
   return runner;
 }
 

@@ -1,5 +1,5 @@
 import { describe, expect, it,vi } from "vitest";
-import { readonly, isReadonly, isReactive } from "../reactivity/reactive";
+import { readonly, isReadonly, isReactive ,isProxy} from "../reactive";
 
 describe("readonly", () => {
   /**
@@ -36,13 +36,13 @@ describe("readonly", () => {
     const original = { foo: 1, bar: { baz: 2 } }
     const wrapped = readonly(original)
     expect(wrapped).not.toBe(original)
-    // expect(isProxy(wrapped)).toBe(true)
-    expect(isReactive(wrapped)).toBe(true)
-    expect(isReadonly(wrapped)).toBe(false)
+    expect(isProxy(wrapped)).toBe(true)
+    expect(isReactive(wrapped)).toBe(false)
+    expect(isReadonly(wrapped)).toBe(true)
     expect(isReactive(original)).toBe(false)
     expect(isReadonly(original)).toBe(false)
-    expect(isReactive(wrapped.bar)).toBe(true)
-    expect(isReadonly(wrapped.bar)).toBe(false)
+    expect(isReactive(wrapped.bar)).toBe(false)
+    expect(isReadonly(wrapped.bar)).toBe(true)
     expect(isReactive(original.bar)).toBe(false)
     expect(isReadonly(original.bar)).toBe(false)
     // get

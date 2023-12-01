@@ -39,6 +39,14 @@ export function isReadonly(value) {
 }
 
 /**
+ * @description 判断是否是proxy对象
+ * @param value
+ */
+export function isProxy(value: unknown): boolean {
+  return isReactive(value) || isReadonly(value)
+}
+
+/**
  * @description 判断是否是reactive对象
  * @param value
  */

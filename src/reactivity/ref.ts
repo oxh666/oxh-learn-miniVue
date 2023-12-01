@@ -1,0 +1,59 @@
+import { isTracking, trackEffects, triggerEffects } from './effect'
+import { hasChanged, isObject } from "../shared";
+import {reactive} from "./reactive";
+
+// 用来存储所有的ref
+// 基本类型 string  boolean number
+// 如何知道这个值是否被 get 或 set
+// 使用 Proxy就不行了，就需要一个 object 包裹，就可以使用 Proxy
+
+class RefImpl {
+  private _value: any
+  private _dep: any
+  private _rawValue: any
+  constructor(value: any) {
+    this._rawValue = value
+    this._value =convert(value)
+    // 看看 value 是不是对象
+    
+    this._dep = new Set()
+    
+  }
+  
+  get value() {
+    // 如果有激活的effect，就收集依赖
+    trackRefValue(this)
+    
+    return this._value
+  }
+  
+  set value(newValue) {
+    if(hasChanged(newValue,this._rawValue)) {
+      // 先去修改 value
+      this._rawValue = newValue
+      this._value =convert(newValue)
+
+      triggerEffects(this._dep)
+    }
+  }
+  
+  
+}
+function trackRefValue(ref) {
+  if (isTracking()) {
+    trackEffects(ref._dep)
+  }
+  
+}
+/**
+ * @description 创建一个ref对象
+ * @param value
+ */
+export function ref(value: any) {
+  
+  return new RefImpl(value)
+}
+function convert(value) {
+  return isObject(value)? reactive(value): value
+  
+}
